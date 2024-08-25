@@ -14,6 +14,7 @@ Este script automatiza la grabación de video, la detección de personas utiliza
 - **YOLOv5:** Modelo de detección de objetos utilizado para identificar personas.
 - **curl:** Herramienta de línea de comandos para realizar solicitudes a la API de Telegram.
 - **Una cuenta y un bot de Telegram:** Necesarios para enviar notificaciones.
+- Cualquier camara IP que tengais por casa yo uso una Tapo C200.
 - **DroidCam (Opcional):** Si deseas utilizar la cámara de tu móvil como fuente de video.
 
 ### Uso de DroidCam para la Fuente de Video
