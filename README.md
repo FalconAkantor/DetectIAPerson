@@ -51,25 +51,8 @@ Antes de ejecutar el script, asegúrate de configurar los siguientes valores en 
 - `TOKEN`: El token de tu bot de Telegram.
 - `CHAT_ID`: El ID del chat donde se enviarán las notificaciones.
 - `VIDEO_URL`: La URL del stream de video que deseas monitorear.
-- `OUTPUT_FILE`: La ruta donde se guardarán los videos grabados. (recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
-- `LOG_FILE`: La ruta donde se guardarán los logs de ejecución. (recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
-- `runs_dir`: Directorio donde se almacenarán los resultados de las detecciones.(recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
-
-## Ejemplo de una configuración
-
-`/usr/src/DetectIAPerson` esta es la raiz de mi directorio donde tento el DetectIAPerson y es donde debo de cambiar en mi caso: `RUTA/DE/SALIDA` por `/usr/src/DetectIAPerson`.
-
-- `OUTPUT_FILE`: La ruta donde se guardarán los videos grabados. (recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
-
-`OUTPUT_FILE="/usr/src/DetectIAPerson/video_$VIDEO_TIMESTAMP.mp4"`
-
-- `LOG_FILE`: La ruta donde se guardarán los logs de ejecución. (recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
-
-`LOG_FILE="/usr/src/DetectIAPerson/detect.log"`
-  
-- `runs_dir`: Directorio donde se almacenarán los resultados de las detecciones.(recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
-
-`runs_dir="/usr/src/DetectIAPerson/runs/detect"`
+- `OUTPUT_DIR="/ruta/de/salida"` a la ruta absoluta donde se encuentra la carpeta `DetectIAPerson`: ejemplo `OUTPUT_DIR="/home/usuario/DetectIAPerson"`
+- `default_duration_minutes=300` Aquí por defecto puse 5 horas por necesidades mias con ponerlo en una tarea de cron pero podeis cambiarlo al gusto.
 
 ## Uso
 
@@ -95,10 +78,10 @@ DOCUMENT_URL="https://api.telegram.org/bot$TOKEN/sendDocument"
 # Ruta de salida
 OUTPUT_DIR="/ruta/de/salida"
 
-# URL del video de origen para grabar (modifica según tu fuente de video) o la camara que uses.
+# URL del video de origen para grabar (modifica según tu fuente de video)
 VIDEO_URL="rtsp://usuario:contraseña@IP:PUERTO/stream1"
 
-# Duración predeterminada de grabación en minutos si no se especifica 5 horas
+# Duración predeterminada de grabación en minutos si no se especifica
 default_duration_minutes=300
 
 # Número de fotogramas por segundo
@@ -162,7 +145,7 @@ send_message "Video grabado el $video_date."
 
 # Procesar el video usando detect.py
 echo "Procesando video con detect.py..."
-/usr/bin/python3 /usr/src/app/detect.py --source "$OUTPUT_FILE" --conf-thres 0.35 --class 0
+python3 "$OUTPUT_DIR/detect.py" --source "$OUTPUT_FILE" --conf-thres 0.35 --class 0
 
 # Directorio donde se guardan los resultados de detect.py
 results_directory=$(find "$OUTPUT_DIR/runs/detect" -type d -name "exp*" | sort | tail -n 1)
