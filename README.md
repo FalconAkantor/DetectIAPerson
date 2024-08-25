@@ -56,7 +56,7 @@ Ejecuta el script desde la línea de comandos:
 
 ```bash
 ./analisis.sh
-
+```
 El script grabará video, lo procesará con YOLOv5 para detectar personas, y enviará notificaciones a través de Telegram con los fotogramas y videos donde se detectaron personas.
 
 Resultados
