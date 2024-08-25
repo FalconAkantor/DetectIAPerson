@@ -35,6 +35,11 @@ Este script automatiza la grabación de video, la detección de personas utiliza
     pip install -r requirements.txt
    ```
 
+Comprobamos con el comando de abajo que el funcionamiento es el correcto.
+
+ ```bash
+ python3 detect.py --source data/images/zidane.jpg --weights yolov5s.pt --conf-thres 0.4 --save-txt --save-crop --project results --name detection_output
+ ```
 4. **Configurar ffmpeg:**
 
     Asegúrate de que `ffmpeg` esté instalado y accesible en tu sistema. Puedes instalarlo utilizando el administrador de paquetes de tu sistema operativo.
