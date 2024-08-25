@@ -16,7 +16,9 @@ Clonar el repositorio:
 
 
 git clone https://github.com/FalconAkantor/DetectIAPerson.git
+
 cd DetectIAPerson
+
 Instalar las dependencias necesarias:
 
 pip install -r requirements.txt
