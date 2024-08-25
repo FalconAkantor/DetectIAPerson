@@ -51,9 +51,25 @@ Antes de ejecutar el script, asegúrate de configurar los siguientes valores en 
 - `TOKEN`: El token de tu bot de Telegram.
 - `CHAT_ID`: El ID del chat donde se enviarán las notificaciones.
 - `VIDEO_URL`: La URL del stream de video que deseas monitorear.
-- `OUTPUT_FILE`: La ruta donde se guardarán los videos grabados.
-- `LOG_FILE`: La ruta donde se guardarán los logs de ejecución.
-- `runs_dir`: Directorio donde se almacenarán los resultados de las detecciones.
+- `OUTPUT_FILE`: La ruta donde se guardarán los videos grabados. (recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
+- `LOG_FILE`: La ruta donde se guardarán los logs de ejecución. (recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
+- `runs_dir`: Directorio donde se almacenarán los resultados de las detecciones.(recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
+
+## Ejemplo de una configuración
+
+`/usr/src/DetectIAPerson` esta es la raiz de mi directorio donde tento el DetectIAPerson y es donde debo de cambiar en mi caso: `RUTA/DE/SALIDA` por `/usr/src/DetectIAPerson`.
+
+- `OUTPUT_FILE`: La ruta donde se guardarán los videos grabados. (recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
+
+`OUTPUT_FILE="/usr/src/DetectIAPerson/video_$VIDEO_TIMESTAMP.mp4"`
+
+- `LOG_FILE`: La ruta donde se guardarán los logs de ejecución. (recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
+
+`LOG_FILE="/usr/src/DetectIAPerson/detect.log"`
+  
+- `runs_dir`: Directorio donde se almacenarán los resultados de las detecciones.(recomiendo que sea la carpeta raiz donde se haya descargado con ruta absoluta)
+
+`runs_dir="/usr/src/DetectIAPerson/runs/detect"`
 
 ## Uso
 
@@ -91,7 +107,7 @@ BITRATE="500k"
 # Nombre del archivo de salida con marca de tiempo (modifica la ruta si es necesario)
 VIDEO_TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
 OUTPUT_FILE="RUTA/DE/SALIDA/video_$VIDEO_TIMESTAMP.mp4"
-LOG_FILE="RUTA/DE/SALIDA/9-14.log"
+LOG_FILE="RUTA/DE/SALIDA/detection.log"
 
 # Función para enviar mensaje a Telegram
 send_message() {
