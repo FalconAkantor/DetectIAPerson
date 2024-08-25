@@ -6,13 +6,52 @@ Automatización de detección de personas usando YOLOv5 a través de Telegram. E
 
 Este script automatiza la grabación de video, la detección de personas utilizando YOLOv5, y el envío de notificaciones con los resultados a través de Telegram.
 
+
 ## Requisitos
 
-- Python 3.x
-- ffmpeg
-- YOLOv5 (para la detección de objetos)
-- curl (para enviar solicitudes a la API de Telegram)
-- Una cuenta y un bot de Telegram
+- **Python 3.x:** Necesario para ejecutar los scripts.
+- **ffmpeg:** Utilizado para la grabación y procesamiento de video.
+- **YOLOv5:** Modelo de detección de objetos utilizado para identificar personas.
+- **curl:** Herramienta de línea de comandos para realizar solicitudes a la API de Telegram.
+- **Una cuenta y un bot de Telegram:** Necesarios para enviar notificaciones.
+- **DroidCam (Opcional):** Si deseas utilizar la cámara de tu móvil como fuente de video.
+
+### Uso de DroidCam para la Fuente de Video
+
+DroidCam es una aplicación que te permite usar la cámara de tu móvil como una cámara web en tu ordenador. Es compatible con dispositivos Android e iOS y puede ser una opción conveniente si no tienes una cámara web dedicada.
+
+#### Pasos para configurar DroidCam:
+
+1. **Instalar DroidCam en tu móvil:**
+   - Descarga e instala la aplicación DroidCam desde la [Google Play Store](https://play.google.com/store/apps/details?id=com.dev47apps.droidcam) o la [Apple App Store](https://apps.apple.com/us/app/droidcam-wireless-webcam/id1510258102).
+
+2. **Instalar el cliente DroidCam en tu ordenador:**
+   - Visita el [sitio web de DroidCam](https://www.dev47apps.com/droidcam/) y descarga el cliente para tu sistema operativo (Windows/Linux).
+
+3. **Conectar el móvil al ordenador:**
+   - Abre la aplicación DroidCam en tu móvil.
+   - En la aplicación del móvil, verás una IP y un puerto (e.g., `192.168.1.100:4747`). Estos serán necesarios para el siguiente paso.
+
+4. **Configurar el script para usar DroidCam:**
+   - Una vez que tu móvil esté transmitiendo video, puedes configurar el script `analisis.sh` para usar la transmisión de DroidCam como fuente de video.
+   - Reemplaza `VIDEO_URL` en el script con la URL de DroidCam. Normalmente, esta URL tendrá el siguiente formato:
+     ```bash
+     VIDEO_URL="http://192.168.1.100:4747/video?640x480"
+     ```
+     Donde ?640x480 es la relación de calidad se puede poner hasta la que permita tu camara, pero con la que he puesto es más
+     que suficiente, si no quereis que ocupe mucho el video.
+     
+   - Asegúrate de reemplazar `192.168.1.100:4747` con la IP y el puerto que se muestran en la aplicación DroidCam de tu móvil.
+
+5. **Probar la conexión:**
+   - Puedes probar si la conexión funciona abriendo la URL en un navegador de tu ordenador o mediante `ffmpeg` para ver si se está transmitiendo video correctamente.
+
+#### Ventajas de Usar DroidCam:
+
+- **Portabilidad:** Puedes colocar tu móvil en cualquier lugar que desees monitorear sin necesidad de cables adicionales.
+- **Calidad:** Las cámaras de los móviles suelen ofrecer mejor calidad que muchas cámaras web convencionales.
+- **Configuración rápida:** No requiere hardware adicional y es fácil de configurar.
+
 
 ## Instalación
 
