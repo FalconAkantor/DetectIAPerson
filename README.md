@@ -23,17 +23,17 @@ Este script automatiza la grabación de video, la detección de personas utiliza
     cd DetectIAPerson
     ```
 
-2. **Instalar las dependencias necesarias:**
-
+2. **Instalar los paquetes necesarios con el script de instalación:**
     ```bash
+    chmod 777 install.sh
+    ./install.sh
+    ```
+  
+3. **Instalar las dependencias necesarias:**
+
+  ```bash
     pip install -r requirements.txt
-    ```
-
-3. **Instalar los paquetes necesarios con el script de instalación:**
-
-    ```bash
-    ./instalacion.sh
-    ```
+   ```
 
 4. **Configurar ffmpeg:**
 
