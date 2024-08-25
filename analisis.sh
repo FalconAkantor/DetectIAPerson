@@ -11,10 +11,10 @@ DOCUMENT_URL="https://api.telegram.org/bot$TOKEN/sendDocument"
 # Ruta de salida
 OUTPUT_DIR="/ruta/de/salida"
 
-# URL del video de origen para grabar (modifica según tu fuente de video) o la camara que uses.
+# URL del video de origen para grabar (modifica según tu fuente de video)
 VIDEO_URL="rtsp://usuario:contraseña@IP:PUERTO/stream1"
 
-# Duración predeterminada de grabación en minutos si no se especifica 5 horas
+# Duración predeterminada de grabación en minutos si no se especifica
 default_duration_minutes=300
 
 # Número de fotogramas por segundo
@@ -78,7 +78,7 @@ send_message "Video grabado el $video_date."
 
 # Procesar el video usando detect.py
 echo "Procesando video con detect.py..."
-/usr/bin/python3 /usr/src/app/detect.py --source "$OUTPUT_FILE" --conf-thres 0.35 --class 0
+python3 "$OUTPUT_DIR/detect.py" --source "$OUTPUT_FILE" --conf-thres 0.35 --class 0
 
 # Directorio donde se guardan los resultados de detect.py
 results_directory=$(find "$OUTPUT_DIR/runs/detect" -type d -name "exp*" | sort | tail -n 1)
@@ -149,4 +149,3 @@ fi
 echo "Archivo de log enviado por Telegram."
 
 echo "Proceso completado."
-
