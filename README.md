@@ -7,7 +7,9 @@ Automatización de detección de personas usando YOLOv5 a través de Telegram. E
 Este script automatiza la grabación de video, la detección de personas utilizando YOLOv5, y el envío de notificaciones con los resultados a través de Telegram.
 
 ## Canal de Telegram con video de explicación por si hace falta.
-https://t.me/+WLErr9YRy5EyYzM0
+
+Canal con video: https://t.me/+WLErr9YRy5EyYzM0
+
 Para cualquier duda o sugerencia, por favor contacta conmigo en FalconAkantor en Telegram. (https://t.me/FalconAkantor)
 
 ## Requisitos
