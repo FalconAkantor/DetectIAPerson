@@ -8,6 +8,7 @@ Este script automatiza la grabación de video, la detección de personas utiliza
 
 ## Canal de Telegram con video de explicación por si hace falta.
 https://t.me/+WLErr9YRy5EyYzM0
+Para cualquier duda o sugerencia, por favor contacta conmigo en FalconAkantor en Telegram. (https://t.me/FalconAkantor)
 
 ## Requisitos
 
@@ -268,6 +269,4 @@ Logs: Guardados en el archivo de log especificado para análisis posterior.
 Contribuciones
 Las contribuciones son bienvenidas. Si tienes ideas o mejoras, no dudes en hacer un fork del proyecto y enviar un pull request.
 
-Contacto
-Para cualquier duda o sugerencia, por favor contacta a FalconAkantor en Telegram. (https://t.me/FalconAkantor)
 
