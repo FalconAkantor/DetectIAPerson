@@ -8,10 +8,13 @@ MESSAGE_URL="https://api.telegram.org/bot$TOKEN/sendMessage"
 PHOTO_URL="https://api.telegram.org/bot$TOKEN/sendPhoto"
 DOCUMENT_URL="https://api.telegram.org/bot$TOKEN/sendDocument"
 
-# URL del video de origen para grabar (modifica según tu fuente de video)
+# Ruta de salida
+OUTPUT_DIR="/ruta/de/salida"
+
+# URL del video de origen para grabar (modifica según tu fuente de video) o la camara que uses.
 VIDEO_URL="rtsp://usuario:contraseña@IP:PUERTO/stream1"
 
-# Duración predeterminada de grabación en minutos si no se especifica
+# Duración predeterminada de grabación en minutos si no se especifica 5 horas
 default_duration_minutes=300
 
 # Número de fotogramas por segundo
@@ -20,10 +23,10 @@ FPS=0.5  # Esto significa 1 fotograma cada 2 segundos
 # Bitrate objetivo para la compresión
 BITRATE="500k"
 
-# Nombre del archivo de salida con marca de tiempo (modifica la ruta si es necesario)
+# Nombre del archivo de salida con marca de tiempo
 VIDEO_TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
-OUTPUT_FILE="RUTA/DE/SALIDA/video_$VIDEO_TIMESTAMP.mp4"
-LOG_FILE="RUTA/DE/SALIDA/9-14.log"
+OUTPUT_FILE="$OUTPUT_DIR/video_$VIDEO_TIMESTAMP.mp4"
+LOG_FILE="$OUTPUT_DIR/detection.log"
 
 # Función para enviar mensaje a Telegram
 send_message() {
@@ -45,7 +48,7 @@ send_error_message() {
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 # Verificar y eliminar directorios exp2 a exp9 si existe exp9
-runs_dir="RUTA/DE/SALIDA/runs/detect"
+runs_dir="$OUTPUT_DIR/runs/detect"
 if [ -d "$runs_dir/exp9" ]; then
     echo "Directorio exp9 encontrado. Eliminando exp2 a exp9..."
     for i in {2..9}; do
@@ -78,7 +81,7 @@ echo "Procesando video con detect.py..."
 /usr/bin/python3 /usr/src/app/detect.py --source "$OUTPUT_FILE" --conf-thres 0.35 --class 0
 
 # Directorio donde se guardan los resultados de detect.py
-results_directory=$(find /usr/src/app/runs/detect -type d -name "exp*" | sort | tail -n 1)
+results_directory=$(find "$OUTPUT_DIR/runs/detect" -type d -name "exp*" | sort | tail -n 1)
 
 # Verificar si se encontraron archivos de resultados
 if [ -z "$results_directory" ]; then
@@ -146,3 +149,4 @@ fi
 echo "Archivo de log enviado por Telegram."
 
 echo "Proceso completado."
+
